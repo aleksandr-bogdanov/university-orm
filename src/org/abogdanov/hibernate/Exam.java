@@ -1,6 +1,6 @@
 package org.abogdanov.hibernate;
 
-import java.sql.Date;
+import java.util.*;
 
 public class Exam {
 	private int id;
@@ -9,6 +9,8 @@ public class Exam {
 	//TODO: Implement date feature
 	//private Date date;
 	private int grade;
+	private List subjects;
+
 
 	public Exam() {
 	}
@@ -49,5 +51,13 @@ public class Exam {
 
 	public void setGrade(int grade) {
 		this.grade = grade;
+	}
+
+	public List getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(List subjects) {
+		this.subjects = subjects;
 	}
 }

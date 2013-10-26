@@ -43,5 +43,19 @@
                      class="org.abogdanov.hibernate.Student" not-null="true"/>
         <many-to-one name="teacher_id" column="teacher_id"
                      class="org.abogdanov.hibernate.Teacher" not-null="true"/>
+        <list name="subjects" cascade="all">
+            <key column="exam_id"/>
+            <list-index column="idx"/>
+            <one-to-many class="org.abogdanov.hibernate.Subject"/>
+        </list>
+    </class>
+    <class name="org.abogdanov.hibernate.Subject" table="SUBJECT">
+        <meta attribute="class-description">
+            This class contains the subject records.
+        </meta>
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="subject_name" type="string"/>
     </class>
 </hibernate-mapping>

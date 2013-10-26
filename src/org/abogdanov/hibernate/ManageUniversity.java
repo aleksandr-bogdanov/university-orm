@@ -21,9 +21,11 @@ public class ManageUniversity {
 
 		ManageUniversity MT = new ManageUniversity();
 
+		//TESTING DEPARTMENTS
 		Dept SE = MT.addDept("Software Engineering");
 		Dept NO = MT.addDept("Nonlinear Oscillations");
 
+		//TESTING TEACHERS
 		Integer teacherID1 = MT.addTeacher("Alexander", "Makhortov", SE);
 		Integer teacherID2 = MT.addTeacher("Maksim", "Shestakov", SE);
 		Integer teacherID3 = MT.addTeacher("Irina", "Kostrub", NO);
@@ -32,6 +34,7 @@ public class ManageUniversity {
 //		MT.deleteTeacher(teacherID1);
 //		MT.listTeachers();
 
+		//TESTING STUDENTS
 		Integer studentID1 = MT.addStudent("Alexey", "Bogdanov");
 		Integer studentID2 = MT.addStudent("Alexander", "Reshetnikov");
 		Integer studentID3 = MT.addStudent("Konstantin", "Kostikov");
@@ -40,10 +43,19 @@ public class ManageUniversity {
 //		MT.deleteStudent(studentID1);
 //		MT.listStudents();
 
-		Integer examID1 = MT.addExam(studentID1, teacherID1, 5);
-		Integer examID2 = MT.addExam(studentID2, teacherID2, 4);
-		Integer examID3 = MT.addExam(studentID3, teacherID3, 3);
-		MT.listExams();
+		//TESTING SUBJECTS
+		Integer subjectID1 = MT.addSubject("System Programming", 20);
+		Integer subjectID2 = MT.addSubject("Informatics", 30);
+		Integer subjectID3 = MT.addSubject("Differential Equations", 40);
+		MT.listSubjects();
+
+
+		//TESTING EXAMS
+		//Todo: fix an error
+//		Integer examID1 = MT.addExam(studentID1, teacherID1, 5);
+//		Integer examID2 = MT.addExam(studentID2, teacherID2, 4);
+//		Integer examID3 = MT.addExam(studentID3, teacherID3, 3);
+//		MT.listExams();
 //		MT.updateExam(examID2, 5);
 //		MT.deleteExam(examID3);
 //		MT.listExams();
@@ -322,6 +334,91 @@ public class ManageUniversity {
 			Exam exam =
 					(Exam) session.get(Exam.class, ExamID);
 			session.delete(exam);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null) tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+
+	/* Method to add a subject record in the database */
+	public Integer addSubject(String name, Integer hours) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		Integer examID = null;
+		try {
+			tx = session.beginTransaction();
+			Subject subject = new Subject(name, hours);
+			examID = (Integer) session.save(subject);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null) tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return examID;
+	}
+
+	/* Method to list all the subject details */
+	public void listSubjects() {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			List subjects = session.createQuery("FROM Subject").list();
+			System.out.println("\n\t\t--- LIST OF SUBJECTS ---");
+			for (Iterator iterator =
+						 subjects.iterator(); iterator.hasNext(); ) {
+
+				Subject subject = (Subject) iterator.next();
+				System.out.println("Subject");
+				System.out.println(" - Info: ");
+				System.out.println("\tName: " + subject.getName());
+				System.out.println("\tHours: " + subject.getHours());
+			}
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null) tx.rollback();
+			e.printStackTrace();
+		} finally {
+
+			session.close();
+		}
+	}
+
+	/* Method to update name and grade for a subject */
+	public void updateSubject(Integer SubjectID, String name, Integer hours) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			Subject subject =
+					(Subject) session.get(Subject.class, SubjectID);
+			subject.setHours(hours);
+			subject.setName(name);
+			session.update(subject);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null) tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	/* Method to delete an exam from the records */
+	public void deleteSubject(Integer SubjectID) {
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			Subject subject =
+					(Subject) session.get(Subject.class, SubjectID);
+			session.delete(subject);
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null) tx.rollback();
