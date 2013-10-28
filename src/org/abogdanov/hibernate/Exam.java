@@ -1,13 +1,13 @@
 package org.abogdanov.hibernate;
 
+import org.abogdanov.university.domain.Student;
+
 import java.util.*;
 
 public class Exam {
-	private int id;
-	private int teacher_id;
-	private int student_id;
-	//TODO: Implement date feature
-	//private Date date;
+	private Integer id;
+	private Teacher teacher_id;
+	private Student student_id;
 	private int grade;
 	private List subjects;
 
@@ -15,33 +15,33 @@ public class Exam {
 	public Exam() {
 	}
 
-	public Exam(int teach_id, int student_id, int grade) {
-		this.teacher_id = teach_id;
+	public Exam(Teacher teacher_id, Student student_id, int grade) {
+		this.teacher_id = teacher_id;
 		this.student_id = student_id;
 		this.grade = grade;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getTeacher_id() {
+	public Teacher getTeacher_id() {
 		return teacher_id;
 	}
 
-	public void setTeacher_id(int teacher_id) {
+	public void setTeacher_id(Teacher teacher_id) {
 		this.teacher_id = teacher_id;
 	}
 
-	public int getStudent_id() {
+	public Student getStudent_id() {
 		return student_id;
 	}
 
-	public void setStudent_id(int student_id) {
+	public void setStudent_id(Student student_id) {
 		this.student_id = student_id;
 	}
 
