@@ -1,16 +1,14 @@
-package org.abogdanov.hibernate;
+package org.abogdanov.university.domain;
 
-public class Subject {
+public class Dept {
 	private int id;
 	private String name;
-	private int hours;
 
-	public Subject() {
+	public Dept() {
 	}
 
-	public Subject(String name, int hours) {
+	public Dept(String name) {
 		this.name = name;
-		this.hours = hours;
 	}
 
 	public int getId() {
@@ -29,11 +27,4 @@ public class Subject {
 		this.name = name;
 	}
 
-	public int getHours() {
-		return hours;
-	}
-
-	public void setHours(int hours) {
-		this.hours = hours;
-	}
 }

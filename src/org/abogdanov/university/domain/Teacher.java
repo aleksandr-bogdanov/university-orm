@@ -1,18 +1,16 @@
-package org.abogdanov.hibernate;
+package org.abogdanov.university.domain;
 
 public class Teacher {
 	private int id;
 	private String firstName;
 	private String lastName;
-	private Dept dept;
 
 	public Teacher() {
 	}
 
-	public Teacher(String firstName, String lastName, Dept dept) {
+	public Teacher(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dept = dept;
 	}
 
 	public int getId() {
@@ -37,13 +35,5 @@ public class Teacher {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public Dept getDept() {
-		return dept;
-	}
-
-	public void setDept(Dept dept) {
-		this.dept = dept;
 	}
 }

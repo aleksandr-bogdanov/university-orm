@@ -1,6 +1,7 @@
 package org.abogdanov.hibernate;
 
 import org.abogdanov.university.domain.Student;
+import org.abogdanov.university.domain.Teacher;
 
 import java.util.*;
 
