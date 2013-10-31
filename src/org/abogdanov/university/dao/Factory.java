@@ -1,9 +1,6 @@
 package org.abogdanov.university.dao;
 
-import org.abogdanov.university.dao.impl.StudentDAOImpl;
-import org.abogdanov.university.dao.impl.TeacherDAOImpl;
-import org.abogdanov.university.dao.impl.DeptDAOImpl;
-import org.abogdanov.university.dao.impl.SubjectDAOImpl;
+import org.abogdanov.university.dao.impl.*;
 
 
 public class Factory {
@@ -13,7 +10,7 @@ public class Factory {
 	private static TeacherDAO teacherDAO = null;
 	private static DeptDAO deptDAO = null;
 	private static SubjectDAO subjectDAO = null;
-
+	private static ExamDAO examDAO = null;
 
 	private static Factory instance = null;
 
@@ -50,6 +47,13 @@ public class Factory {
 			subjectDAO = new SubjectDAOImpl();
 		}
 		return subjectDAO;
+	}
+
+	public ExamDAO getExamDAO() {
+		if (examDAO == null) {
+			examDAO = new ExamDAOImpl();
+		}
+		return examDAO;
 	}
 
 }
