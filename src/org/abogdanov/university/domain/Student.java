@@ -3,13 +3,15 @@ package org.abogdanov.university.domain;
 public class Student {
 	private int id;
 	private String name;
+	private String surname;
 	private int age;
 
 	public Student() {
 	}
 
-	public Student(String name, int age) {
+	public Student(String name, String surname, int age) {
 		this.name = name;
+		this.surname = surname;
 		this.age = age;
 	}
 
@@ -35,5 +37,13 @@ public class Student {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 }

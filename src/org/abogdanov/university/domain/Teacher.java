@@ -4,13 +4,15 @@ public class Teacher {
 	private int id;
 	private String firstName;
 	private String lastName;
+	private Dept dept_id;
 
 	public Teacher() {
 	}
 
-	public Teacher(String firstName, String lastName) {
+	public Teacher(String firstName, String lastName, Dept dept_id) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.dept_id = dept_id;
 	}
 
 	public int getId() {
@@ -35,5 +37,13 @@ public class Teacher {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Dept getDept_id() {
+		return dept_id;
+	}
+
+	public void setDept_id(Dept dept_id) {
+		this.dept_id = dept_id;
 	}
 }
