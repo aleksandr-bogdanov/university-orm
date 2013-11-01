@@ -22,7 +22,8 @@ public class Main {
 		Subject subj1 = new Subject("Diff Equations", 300);
 		Subject subj2 = new Subject("IT", 200);
 
-		Exam e1 = new Exam(s1);
+		Exam e1 = new Exam(s1, t1, subj2, 5);
+		Exam e2 = new Exam(s2, t2, subj1, 3);
 
 
 		//Сохраним их в бд, id будут сгенерированы автоматически
@@ -39,7 +40,7 @@ public class Main {
 		Factory.getInstance().getSubjectDAO().add(subj2);
 
 		Factory.getInstance().getExamDAO().add(e1);
-
+		Factory.getInstance().getExamDAO().add(e2);
 
 		//Выведем всех студентов из бд
 		List<Student> studs = Factory.getInstance().getStudentDAO().getAll();
@@ -98,15 +99,19 @@ public class Main {
 		//Выведем все экзамены из бд
 		List<Exam> exams = Factory.getInstance().getExamDAO().getAll();
 		System.out.println("\n\n\tВсе экзамены\n=============================");
-//		for (Exam exam : exams) {
-//			System.out.println("Студент: \n\tИмя: " +
-//					exam.getStudent_id().getName() +
-//					"\n\tФамилия: " +
-//					exam.getStudent_id().getSurname() +
-//					"\nid: " +
-//					exam.getId()
-//			);
-//			System.out.println("=============================");
-//		}
+		for (Exam exam : exams) {
+			System.out.println("Студент: \n\tИмя: " +
+					exam.getStudent_id().getName() +
+					"\n\tФамилия: " +
+					exam.getStudent_id().getSurname() +
+					"\nПреподаватель: \n\tИмя: " +
+					exam.getTeacher().getFirstName() +
+					"\n\tФамилия: " +
+					exam.getTeacher().getLastName() +
+					"\nПредмет: \n\tНазвание: " +
+					exam.getSubject().getName()
+			);
+			System.out.println("=============================");
+		}
 	}
 }
