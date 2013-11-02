@@ -9,8 +9,8 @@
         <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
-        <property name="name" column="name" type="string"/>
-        <property name="surname" column="surname" type="string"/>
+        <property name="firstName" column="first_name" type="string"/>
+        <property name="lastName" column="last_name" type="string"/>
         <property name="age" column="age" type="int"/>
     </class>
 
@@ -23,7 +23,7 @@
         </id>
         <property name="firstName" column="first_name" type="string"/>
         <property name="lastName" column="last_name" type="string"/>
-        <many-to-one name="dept_id" column="dept_id"
+        <many-to-one name="dept" column="dept"
                      class="org.abogdanov.university.domain.Dept" not-null="true"/>
     </class>
 
@@ -44,7 +44,7 @@
         <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
-        <many-to-one name="student_id" column="student_id"
+        <many-to-one name="student" column="student"
                      class="org.abogdanov.university.domain.Student" not-null="true"
                      lazy="false"/>
         <many-to-one name="teacher" column="teacher"
@@ -53,6 +53,7 @@
         <many-to-one name="subject" column="subject"
                      class="org.abogdanov.university.domain.Subject" not-null="true"
                      lazy="false"/>
+        <property name="grade" column="grade" type="int"/>
 
     </class>
 

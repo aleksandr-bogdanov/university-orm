@@ -2,16 +2,16 @@ package org.abogdanov.university.domain;
 
 public class Student {
 	private int id;
-	private String name;
-	private String surname;
+	private String firstName;
+	private String lastName;
 	private int age;
 
 	public Student() {
 	}
 
-	public Student(String name, String surname, int age) {
-		this.name = name;
-		this.surname = surname;
+	public Student(String firstName, String lastName, int age) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.age = age;
 	}
 
@@ -23,12 +23,20 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public int getAge() {
@@ -37,13 +45,5 @@ public class Student {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
 	}
 }

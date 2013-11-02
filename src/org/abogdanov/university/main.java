@@ -47,9 +47,9 @@ public class Main {
 		System.out.println("\n\n\tВсе студенты\n=============================");
 		for (int i = 0; i < studs.size(); ++i) {
 			System.out.println("Имя: " +
-					studs.get(i).getName() +
+					studs.get(i).getFirstName() +
 					"\nФамилия: " +
-					studs.get(i).getSurname() +
+					studs.get(i).getLastName() +
 					"\nВозраст : " +
 					studs.get(i).getAge() +
 					"\nid : " +
@@ -101,15 +101,17 @@ public class Main {
 		System.out.println("\n\n\tВсе экзамены\n=============================");
 		for (Exam exam : exams) {
 			System.out.println("Студент: \n\tИмя: " +
-					exam.getStudent_id().getName() +
+					exam.getStudent().getFirstName() +
 					"\n\tФамилия: " +
-					exam.getStudent_id().getSurname() +
+					exam.getStudent().getLastName() +
 					"\nПреподаватель: \n\tИмя: " +
 					exam.getTeacher().getFirstName() +
 					"\n\tФамилия: " +
 					exam.getTeacher().getLastName() +
 					"\nПредмет: \n\tНазвание: " +
-					exam.getSubject().getName()
+					exam.getSubject().getName() +
+					"\n\tОценка: " +
+					exam.getGrade()
 			);
 			System.out.println("=============================");
 		}
