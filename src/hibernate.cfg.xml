@@ -9,6 +9,11 @@
         <property name="connection.username">postgres</property>
         <property name="connection.password">password</property>
         <property name="hbm2ddl.auto">create</property>
-        <mapping resource="HibernateMapping.hbm.xml"/>
+        <!--<mapping resource="HibernateXMLMapping.hbm.xml"/>-->
+        <mapping class="org.abogdanov.university.domain.Dept"/>
+        <mapping class="org.abogdanov.university.domain.Teacher"/>
+        <mapping class="org.abogdanov.university.domain.Subject"/>
+        <mapping class="org.abogdanov.university.domain.Student"/>
+        <mapping class="org.abogdanov.university.domain.Exam"/>
     </session-factory>
 </hibernate-configuration>

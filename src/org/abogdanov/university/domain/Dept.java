@@ -1,5 +1,14 @@
 package org.abogdanov.university.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+
+
+@Entity
+@Table(name = "DEPTS")
 public class Dept {
 	private int id;
 	private String name;
@@ -11,6 +20,9 @@ public class Dept {
 		this.name = name;
 	}
 
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -19,6 +31,7 @@ public class Dept {
 		this.id = id;
 	}
 
+	@Column(name = "NAME")
 	public String getName() {
 		return name;
 	}

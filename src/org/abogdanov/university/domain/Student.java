@@ -1,5 +1,13 @@
 package org.abogdanov.university.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+
+@Entity
+@Table(name = "STUDENTS")
 public class Student {
 	private int id;
 	private String firstName;
@@ -15,6 +23,9 @@ public class Student {
 		this.age = age;
 	}
 
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -23,6 +34,7 @@ public class Student {
 		this.id = id;
 	}
 
+	@Column(name = "FIRST_NAME")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -31,6 +43,7 @@ public class Student {
 		this.firstName = firstName;
 	}
 
+	@Column(name = "LAST_NAME")
 	public String getLastName() {
 		return lastName;
 	}
@@ -39,6 +52,7 @@ public class Student {
 		this.lastName = lastName;
 	}
 
+	@Column(name = "AGE")
 	public int getAge() {
 		return age;
 	}
