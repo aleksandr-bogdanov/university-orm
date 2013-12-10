@@ -3,6 +3,7 @@ package org.abogdanov.university.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+// Паттерн DAO
 public interface GenericDAO<E> {
 	//Todo: add class-specific methods for inherited DAOs
 	public void add(E thing) throws SQLException;        //добавить студента
