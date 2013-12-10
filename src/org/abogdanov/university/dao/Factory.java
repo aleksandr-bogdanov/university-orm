@@ -2,7 +2,8 @@ package org.abogdanov.university.dao;
 
 import org.abogdanov.university.dao.impl.*;
 
-
+// Тут, собственно, используется паттерн DAO. Потенциально можно использовать замыкание для 
+// убирания повторяющегося кода
 public class Factory {
 
 	//Todo: refactor repeating code
